@@ -54,15 +54,15 @@ api
 
 * arc() 创建一个圆的路径
 * beginPath()  定义路径
-* clearRect()
+* clearRect() 擦除canvas
 * fill() 对路径的内部进行填充
-* fillText()
+* fillText() 
 * lineTo()
 * moveTo()
 * stroke()  描绘路径的边缘
 
 ```js
-
+	
 ```
 
 
