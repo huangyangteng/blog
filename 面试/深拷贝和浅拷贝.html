@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var test={
+            num:0,
+            str:'lalalal',
+            obj:{
+                name:'ming',
+                age:13
+            },
+            bool:true,
+            arr:[1,2,3,4]
+        }
+        
+        function isObject(o){
+            return (typeof o==='object' || typeof o==='function') && o!==null;
+        }
+        function deepClone(obj){
+            if(!isObject(obj)){
+                throw new Error(`${obj} 不是一个对象`)
+            }
+            let cloneObj=Array.isArray(obj)?[]:{};
+            for(let key in obj){
+                cloneObj[key]=isObject(obj[key])?deepClone(obj[key]):obj[key];
+            }
+            return cloneObj;
+        }
+
+        //---------------------测试
+        var result = deepClone(test);
+            console.log(result);
+            for (let key in result) {
+                if (isObject(result[key])) {
+                    console.log(`${key}相同吗？`, result[key] === test[key]);
+                }
+            }
+        
+    </script>
+</body>
+</html>
